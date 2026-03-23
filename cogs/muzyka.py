@@ -8,7 +8,7 @@ import time
 import config
 
 YTDL_OPTS = {
-    "format": "bestaudio/best",
+    "format": "bestaudio[ext=webm]/bestaudio[ext=m4a]/bestaudio/best",
     "noplaylist": False,
     "quiet": True,
     "default_search": "ytsearch",
