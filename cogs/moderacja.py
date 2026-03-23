@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -9,10 +10,8 @@ class Moderacja(commands.Cog):
         self.bot = bot
 
     def embed(self, title, desc, color):
-        e = discord.Embed(title=title, description=desc, color=color)
-        return e
+        return discord.Embed(title=title, description=desc, color=color)
 
-    # ---- KICK ----
     @app_commands.command(name="kick", description="Wyrzuca użytkownika z serwera")
     @app_commands.describe(member="Użytkownik", reason="Powód")
     @app_commands.checks.has_permissions(kick_members=True)
@@ -22,7 +21,6 @@ class Moderacja(commands.Cog):
             embed=self.embed("👢 Kick", f"**{member}** został wyrzucony.\n📝 Powód: {reason}", config.COLOR_WARN)
         )
 
-    # ---- BAN ----
     @app_commands.command(name="ban", description="Banuje użytkownika")
     @app_commands.describe(member="Użytkownik", reason="Powód")
     @app_commands.checks.has_permissions(ban_members=True)
@@ -32,7 +30,6 @@ class Moderacja(commands.Cog):
             embed=self.embed("🔨 Ban", f"**{member}** został zbanowany.\n📝 Powód: {reason}", config.COLOR_ERR)
         )
 
-    # ---- UNBAN ----
     @app_commands.command(name="unban", description="Odbanowuje użytkownika po ID")
     @app_commands.describe(user_id="ID użytkownika")
     @app_commands.checks.has_permissions(ban_members=True)
@@ -43,7 +40,6 @@ class Moderacja(commands.Cog):
             embed=self.embed("✅ Unban", f"**{user}** został odbanowany.", config.COLOR_OK)
         )
 
-    # ---- MUTE (timeout) ----
     @app_commands.command(name="mute", description="Wycisza użytkownika (timeout)")
     @app_commands.describe(member="Użytkownik", minuty="Czas w minutach", reason="Powód")
     @app_commands.checks.has_permissions(moderate_members=True)
@@ -53,7 +49,6 @@ class Moderacja(commands.Cog):
             embed=self.embed("🔇 Mute", f"**{member}** wyciszony na **{minuty} min**.\n📝 Powód: {reason}", config.COLOR_WARN)
         )
 
-    # ---- UNMUTE ----
     @app_commands.command(name="unmute", description="Zdejmuje timeout z użytkownika")
     @app_commands.checks.has_permissions(moderate_members=True)
     async def unmute(self, interaction: discord.Interaction, member: discord.Member):
@@ -62,7 +57,6 @@ class Moderacja(commands.Cog):
             embed=self.embed("🔊 Unmute", f"**{member}** został odciszony.", config.COLOR_OK)
         )
 
-    # ---- CLEAR ----
     @app_commands.command(name="clear", description="Usuwa wiadomości z kanału")
     @app_commands.describe(ilosc="Liczba wiadomości (max 100)")
     @app_commands.checks.has_permissions(manage_messages=True)
@@ -74,7 +68,6 @@ class Moderacja(commands.Cog):
             ephemeral=True
         )
 
-    # ---- ERROR HANDLER ----
     @kick.error
     @ban.error
     @mute.error

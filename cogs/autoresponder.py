@@ -1,18 +1,24 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
+import asyncio
 import config
 
-MEDIA_CHANNEL_ID = 1485382435880570962
+MEDIA_CHANNEL_IDS = [
+    1483866197228523647,
+    1483932486344900689,
+]
 
 MEDIA_EMOJIS = [
-    "<:964657bunny:1485375844695412940>",
-    "<:57086star:1485375872155258890>",
-    "<:936060insanelaughingemoji:1485375808422805514>",
-    "<a:1477805833260634182:1485375937561362482>",
+    "<a:serduszko:1484672343820341489>",
+    "<a:slodkie:1484672376623857828>",
+    "<a:serca:1484672407494197399>",
+    "<a:kawaii:1484672441627447316>",
+    "<a:sercebije:1484672934005178398>",
 ]
 
 SZUKAJ_KOMENDY = {
-    "!watek":   (1485412591772897340, "szuka watku"),
+    "!watek":   (1485412591772897340, "szuka wątku"),
     "!social":  (1485412615885815839, "szuka sociala"),
     "!relacje": (1485412643807297772, "szuka relacji"),
 }
@@ -26,7 +32,6 @@ class Autoresponder(commands.Cog):
         if message.author.bot:
             return
 
-        # komendy szukaj
         content = message.content.strip().lower()
         if content in SZUKAJ_KOMENDY:
             role_id, tekst = SZUKAJ_KOMENDY[content]
@@ -37,13 +42,12 @@ class Autoresponder(commands.Cog):
             )
             return
 
-        # reakcje na pliki w kanale media
-        if message.channel.id == MEDIA_CHANNEL_ID and message.attachments:
+        if message.channel.id in MEDIA_CHANNEL_IDS and message.attachments:
             for emoji in MEDIA_EMOJIS:
                 await message.add_reaction(emoji)
+                await asyncio.sleep(0.5)
             return
 
-        # autoresponder
         content_lower = message.content.lower()
         for trigger, response in config.AUTORESPONSES.items():
             if trigger.lower() in content_lower:

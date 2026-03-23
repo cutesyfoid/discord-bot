@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
 import config
-from datetime import timezone
 
 class Logi(commands.Cog):
     def __init__(self, bot):
@@ -12,7 +12,6 @@ class Logi(commands.Cog):
         if channel:
             await channel.send(embed=embed)
 
-    # ---- USUNIĘTE WIADOMOŚCI ----
     @commands.Cog.listener()
     async def on_message_delete(self, message: discord.Message):
         if message.author.bot or not message.guild:
@@ -24,7 +23,6 @@ class Logi(commands.Cog):
         e.timestamp = discord.utils.utcnow()
         await self.log(message.guild, e)
 
-    # ---- EDYTOWANE WIADOMOŚCI ----
     @commands.Cog.listener()
     async def on_message_edit(self, before: discord.Message, after: discord.Message):
         if before.author.bot or not before.guild or before.content == after.content:
@@ -37,7 +35,6 @@ class Logi(commands.Cog):
         e.timestamp = discord.utils.utcnow()
         await self.log(before.guild, e)
 
-    # ---- DOŁĄCZENIE DO SERWERA ----
     @commands.Cog.listener()
     async def on_member_join(self, member: discord.Member):
         e = discord.Embed(title="✅ Nowy użytkownik", color=0x2ecc71)
@@ -47,7 +44,6 @@ class Logi(commands.Cog):
         e.timestamp = discord.utils.utcnow()
         await self.log(member.guild, e)
 
-    # ---- OPUSZCZENIE SERWERA ----
     @commands.Cog.listener()
     async def on_member_remove(self, member: discord.Member):
         e = discord.Embed(title="❌ Użytkownik opuścił serwer", color=0xe74c3c)
@@ -58,7 +54,6 @@ class Logi(commands.Cog):
         e.timestamp = discord.utils.utcnow()
         await self.log(member.guild, e)
 
-    # ---- ZMIANY RÓL ----
     @commands.Cog.listener()
     async def on_member_update(self, before: discord.Member, after: discord.Member):
         added = set(after.roles) - set(before.roles)
@@ -74,7 +69,6 @@ class Logi(commands.Cog):
         e.timestamp = discord.utils.utcnow()
         await self.log(after.guild, e)
 
-    # ---- BAN / UNBAN ----
     @commands.Cog.listener()
     async def on_member_ban(self, guild, user):
         e = discord.Embed(title="🔨 Ban", description=f"{user} ({user.id}) został zbanowany.", color=0xe74c3c)

@@ -1,10 +1,9 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import logging
-import subprocess
-subprocess.run(["pip", "install", "-U", "yt-dlp"], capture_output=True)
 
 load_dotenv()
 
@@ -12,7 +11,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
-        logging.FileHandler("bot.log"),
+        logging.FileHandler("bot.log", encoding="utf-8"),
         logging.StreamHandler()
     ]
 )
@@ -28,9 +27,11 @@ COGS = [
     "cogs.weryfikacja",
     "cogs.counting",
     "cogs.muzyka",
+    "cogs.tupper",
+    "cogs.ostrzezenia",
 ]
 
-GUILD_ID = 1485366823762530357
+GUILD_ID = 1483866194804084768
 
 intents = discord.Intents.all()
 
@@ -59,8 +60,8 @@ class MyBot(commands.Bot):
         log.info(f"Bot uruchomiony jako {self.user} (ID: {self.user.id})")
         await self.change_presence(
             activity=discord.Activity(
-                type=discord.ActivityType.watching,
-                name="serwer"
+                type=discord.ActivityType.listening,
+                name="welcome\u2003to\u2003new\u2003york\u2003city."
             )
         )
 

@@ -328,3 +328,794 @@ discord.ext.commands.errors.CommandNotFound: Command "watek" is not found
 2026-03-23 00:03:47,764 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
 discord.ext.commands.errors.CommandNotFound: Command "watek" is not found
 2026-03-23 00:20:49,367 [INFO] discord.gateway: Shard ID None session has been invalidated.
+2026-03-23 09:39:02,070 [INFO] discord.client: logging in using static token
+2026-03-23 09:44:55,821 [INFO] discord.client: logging in using static token
+2026-03-23 09:58:01,388 [INFO] discord.client: logging in using static token
+2026-03-23 10:29:06,908 [INFO] discord.client: logging in using static token
+2026-03-23 10:30:15,820 [INFO] discord.client: logging in using static token
+2026-03-23 10:30:16,296 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 10:30:16,299 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 10:30:16,320 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 10:30:16,322 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 10:30:16,323 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 10:30:16,324 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 10:30:16,329 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 10:30:16,331 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 10:30:16,538 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 10:30:16,784 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 10:30:17,340 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 407e4a9ee5dbc93af93fa3fb3381fe73).
+2026-03-23 10:30:19,355 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 10:30:39,301 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 10:30:39,302 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 10:30:39,622 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-b739a6eb.discord.media:2096
+2026-03-23 10:30:39,776 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 10:30:42,200 [ERROR] discord.app_commands.tree: Ignoring exception in command 'play'
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1854, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1913, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 3058, in process_video_result
+    raise ExtractorError(
+        'Requested format is not available. Use --list-formats for a list of available formats',
+        expected=True, video_id=info_dict['id'], ie=info_dict['extractor'])
+yt_dlp.utils.ExtractorError: [youtube] cJRP3LRcUFg: Requested format is not available. Use --list-formats for a list of available formats
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 134, in play
+    source = await MusicSource.from_url(query, loop=self.bot.loop)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 48, in from_url
+    data = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, lambda: ytdl.extract_info(url, download=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 49, in <lambda>
+    None, lambda: ytdl.extract_info(url, download=False)
+                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [youtube] cJRP3LRcUFg: Requested format is not available. Use --list-formats for a list of available formats
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'play' raised an exception: DownloadError: [0;31mERROR:[0m [youtube] cJRP3LRcUFg: Requested format is not available. Use --list-formats for a list of available formats
+2026-03-23 11:21:51,144 [INFO] discord.client: logging in using static token
+2026-03-23 11:21:51,707 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:21:51,710 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:21:51,721 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:21:51,724 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:21:51,726 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:21:51,728 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:21:51,731 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:21:51,735 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:21:51,907 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:21:52,210 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:21:52,730 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: d0165c6a0de71fbe32a76d2474dda868).
+2026-03-23 11:21:54,734 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:22:19,406 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:22:19,407 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:22:19,710 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:22:19,864 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:23:19,591 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:25:49,302 [INFO] discord.client: logging in using static token
+2026-03-23 11:25:49,864 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:25:49,865 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:25:49,870 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:25:49,871 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:25:49,872 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:25:49,873 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:25:49,874 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:25:49,876 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:25:50,066 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:25:50,352 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:25:50,946 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 72eb414e101eee33e6dc569c6b857dc2).
+2026-03-23 11:25:52,954 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:26:10,112 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:26:10,114 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:26:10,621 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:26:10,754 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:27:17,894 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:27:37,806 [INFO] discord.client: logging in using static token
+2026-03-23 11:27:38,323 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:27:38,324 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:27:38,332 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:27:38,333 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:27:38,334 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:27:38,334 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:27:38,335 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:27:38,336 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:27:38,515 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:27:38,758 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:27:39,230 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 54562d3e588fe7db63f1fda040ec4ee6).
+2026-03-23 11:27:41,245 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:28:22,390 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:28:22,393 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:28:22,663 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:28:22,810 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:29:06,297 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:29:25,327 [INFO] discord.client: logging in using static token
+2026-03-23 11:29:25,863 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:29:25,864 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:29:25,868 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:29:25,869 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:29:25,870 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:29:25,871 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:29:25,872 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:29:25,872 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:29:26,054 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:29:26,281 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:29:26,839 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 86babbe71497704dde70980cfcf93274).
+2026-03-23 11:29:28,855 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:29:42,650 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:29:42,651 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:29:42,948 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:29:43,086 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:29:45,621 [INFO] discord.player: ffmpeg process 26504 has not terminated. Waiting to terminate...
+2026-03-23 11:29:45,626 [INFO] discord.player: ffmpeg process 26504 should have terminated with a return code of 1.
+2026-03-23 11:31:15,463 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:33:05,228 [INFO] discord.client: logging in using static token
+2026-03-23 11:33:05,697 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:33:05,698 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:33:05,705 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:33:05,706 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:33:05,707 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:33:05,709 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:33:05,710 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:33:05,711 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:33:05,887 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:33:06,139 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:33:06,660 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2c979ff202361f34593121d1abf799b7).
+2026-03-23 11:33:08,664 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:33:21,679 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:33:21,681 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:33:21,959 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:33:22,165 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:33:24,636 [INFO] discord.player: ffmpeg process 8440 has not terminated. Waiting to terminate...
+2026-03-23 11:33:24,644 [INFO] discord.player: ffmpeg process 8440 should have terminated with a return code of 1.
+2026-03-23 11:33:48,850 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:37:38,333 [INFO] discord.client: logging in using static token
+2026-03-23 11:37:39,115 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:37:39,115 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:37:39,119 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:37:39,121 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:37:39,121 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:37:39,123 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:37:39,125 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:37:39,126 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:37:39,316 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:37:39,696 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:37:40,633 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: d7c5ce20d7c96b2c7994282e841d9e32).
+2026-03-23 11:37:42,636 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:37:57,325 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:37:57,327 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:37:57,599 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:37:57,831 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:38:01,660 [INFO] discord.player: ffmpeg process 14864 has not terminated. Waiting to terminate...
+2026-03-23 11:38:01,666 [INFO] discord.player: ffmpeg process 14864 should have terminated with a return code of 1.
+2026-03-23 11:38:29,408 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:39:33,019 [INFO] discord.client: logging in using static token
+2026-03-23 11:39:33,527 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:39:33,528 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:39:33,537 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:39:33,538 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:39:33,538 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:39:33,539 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:39:33,540 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:39:33,540 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:39:33,708 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:39:33,971 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:39:34,434 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7c9bb503314d6ca516f0b02687790550).
+2026-03-23 11:39:36,453 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:39:48,569 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:39:48,571 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:39:48,854 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:39:49,060 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:39:51,463 [INFO] discord.player: ffmpeg process 8976 has not terminated. Waiting to terminate...
+2026-03-23 11:39:51,472 [INFO] discord.player: ffmpeg process 8976 should have terminated with a return code of 1.
+2026-03-23 11:40:49,243 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:41:04,696 [INFO] discord.client: logging in using static token
+2026-03-23 11:41:05,137 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:41:05,138 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:41:05,144 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:41:05,145 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:41:05,145 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:41:05,146 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:41:05,147 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:41:05,148 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:41:05,319 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:41:05,597 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:41:06,274 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: e5599ffc2237d83ebd8a8de567838653).
+2026-03-23 11:41:08,285 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:41:17,673 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:41:17,675 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:41:17,947 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:41:18,098 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:41:19,734 [INFO] discord.player: ffmpeg process 13584 has not terminated. Waiting to terminate...
+2026-03-23 11:41:19,742 [INFO] discord.player: ffmpeg process 13584 should have terminated with a return code of 1.
+2026-03-23 11:41:54,777 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:44:45,222 [INFO] discord.client: logging in using static token
+2026-03-23 11:44:45,731 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:44:45,732 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:44:45,741 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:44:45,743 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:44:45,746 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:44:45,747 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:44:45,750 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:44:45,752 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:44:45,937 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:44:46,130 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:44:46,634 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6178f48b76889e15978b427f1d64ec81).
+2026-03-23 11:44:48,638 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:45:06,782 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:45:06,783 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:45:07,053 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:45:07,196 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:45:09,013 [INFO] discord.player: ffmpeg process 1716 has not terminated. Waiting to terminate...
+2026-03-23 11:45:09,020 [INFO] discord.player: ffmpeg process 1716 should have terminated with a return code of 1.
+2026-03-23 11:46:19,541 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:46:34,430 [INFO] discord.client: logging in using static token
+2026-03-23 11:46:34,923 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:46:34,924 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:46:34,928 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:46:34,929 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:46:34,929 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:46:34,930 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:46:34,930 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:46:34,931 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:46:35,139 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:46:35,419 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:46:35,940 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 754fa4364f0a1aa44997d8f0d42f25cc).
+2026-03-23 11:46:37,951 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:46:50,335 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:46:50,335 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:46:50,626 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:46:50,784 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:46:52,956 [INFO] discord.player: ffmpeg process 24592 has not terminated. Waiting to terminate...
+2026-03-23 11:46:52,962 [INFO] discord.player: ffmpeg process 24592 should have terminated with a return code of 1.
+2026-03-23 11:47:32,574 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:48:44,432 [INFO] discord.client: logging in using static token
+2026-03-23 11:48:45,080 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 11:48:45,081 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 11:48:45,088 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 11:48:45,089 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 11:48:45,090 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 11:48:45,091 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 11:48:45,093 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 11:48:45,094 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 11:48:45,294 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 11:48:45,760 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 11:48:46,247 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 85e9304a1a0442e405aac69e30462dbd).
+2026-03-23 11:48:48,262 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 11:48:57,293 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:48:57,295 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:48:57,570 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:48:57,700 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:51:40,242 [INFO] discord.player: ffmpeg process 14400 has not terminated. Waiting to terminate...
+2026-03-23 11:51:40,249 [INFO] discord.player: ffmpeg process 14400 should have terminated with a return code of 1.
+2026-03-23 11:51:59,308 [INFO] discord.player: ffmpeg process 21256 has not terminated. Waiting to terminate...
+2026-03-23 11:51:59,314 [INFO] discord.player: ffmpeg process 21256 should have terminated with a return code of 1.
+2026-03-23 11:52:08,871 [INFO] discord.player: ffmpeg process 20720 has not terminated. Waiting to terminate...
+2026-03-23 11:52:08,882 [INFO] discord.player: ffmpeg process 20720 should have terminated with a return code of 1.
+2026-03-23 11:52:24,995 [INFO] discord.player: ffmpeg process 26064 has not terminated. Waiting to terminate...
+2026-03-23 11:52:25,000 [INFO] discord.player: ffmpeg process 26064 should have terminated with a return code of 1.
+2026-03-23 11:53:11,293 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 11:53:11,312 [INFO] discord.player: ffmpeg process 15828 has not terminated. Waiting to terminate...
+2026-03-23 11:53:11,325 [INFO] discord.player: ffmpeg process 15828 should have terminated with a return code of 1.
+2026-03-23 11:54:59,056 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 11:54:59,057 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 11:54:59,328 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 11:54:59,464 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 11:58:51,108 [INFO] discord.player: ffmpeg process 8700 successfully terminated with return code of 0.
+2026-03-23 12:00:06,386 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 12:05:14,025 [INFO] discord.client: logging in using static token
+2026-03-23 12:05:14,439 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 12:05:14,440 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 12:05:14,445 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 12:05:14,446 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 12:05:14,447 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 12:05:14,448 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 12:05:14,449 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 12:05:14,451 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 12:05:14,628 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 12:05:14,635 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 12:05:14,856 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 12:05:15,484 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 76623b282eec6c376452b1d574e0a14b).
+2026-03-23 12:05:17,499 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 12:05:30,694 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 12:05:30,696 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 12:05:30,974 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw06-c2c5c7f9.discord.media:2096
+2026-03-23 12:05:31,106 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 12:08:57,539 [INFO] discord.player: ffmpeg process 1260 successfully terminated with return code of 0.
+2026-03-23 12:11:29,980 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 12:25:01,088 [INFO] discord.client: logging in using static token
+2026-03-23 12:25:01,628 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 12:25:01,630 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 12:25:01,637 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 12:25:01,638 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 12:25:01,639 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 12:25:01,639 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 12:25:01,641 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 12:25:01,641 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 12:25:01,806 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 12:25:01,808 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 12:25:02,047 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 12:25:02,564 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: da339c15c0b91799361dba4dd9047061).
+2026-03-23 12:25:04,583 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 12:26:53,747 [INFO] discord.client: logging in using static token
+2026-03-23 12:26:54,346 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 12:26:54,347 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 12:26:54,354 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 12:26:54,355 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 12:26:54,356 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 12:26:54,357 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 12:26:54,358 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 12:26:54,359 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 12:26:54,520 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 12:26:54,521 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 12:26:54,710 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 12:26:55,154 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 80a751fed0944ae6b87346cfcff1ac86).
+2026-03-23 12:26:57,162 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 12:27:55,326 [INFO] discord.client: logging in using static token
+2026-03-23 12:27:55,790 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 12:27:55,791 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 12:27:55,796 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 12:27:55,797 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 12:27:55,798 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 12:27:55,799 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 12:27:55,800 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 12:27:55,800 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 12:27:55,957 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 12:27:55,959 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 12:27:56,161 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 12:27:56,699 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1f76d93eea3c3ce30d610eafc658a3b7).
+2026-03-23 12:27:58,706 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 12:55:34,459 [INFO] discord.client: logging in using static token
+2026-03-23 12:55:34,975 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 12:55:34,977 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 12:55:34,984 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 12:55:34,985 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 12:55:34,987 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 12:55:34,991 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 12:55:34,992 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 12:55:34,993 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 12:55:35,153 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 12:55:35,155 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 12:55:35,821 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 12:55:36,614 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: f941273cf9e0cef87f599f75f692ff6f).
+2026-03-23 12:55:38,621 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 12:56:53,734 [INFO] discord.voice_state: Connecting to voice...
+2026-03-23 12:56:53,735 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-23 12:56:54,017 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw05-edc04d05.discord.media:2087
+2026-03-23 12:56:54,141 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 12:59:41,115 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "watek" is not found
+2026-03-23 12:59:49,332 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "social" is not found
+2026-03-23 12:59:54,959 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "relacje" is not found
+2026-03-23 13:00:40,853 [INFO] discord.player: ffmpeg process 26608 successfully terminated with return code of 0.
+2026-03-23 13:01:33,896 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1483866196183879744 (Guild ID 1483866194804084768)
+2026-03-23 13:09:33,511 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "social" is not found
+2026-03-23 13:22:48,878 [INFO] discord.client: logging in using static token
+2026-03-23 13:22:49,401 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:22:49,403 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:22:49,406 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 13:22:49,407 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:22:49,408 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:22:49,409 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:22:49,409 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 13:22:49,410 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:22:49,603 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:22:49,605 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:22:49,824 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:22:50,231 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: f0f68378531afb57274ec07b3c3ba44c).
+2026-03-23 13:22:52,253 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 13:29:09,098 [INFO] discord.client: logging in using static token
+2026-03-23 13:29:09,800 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:29:09,805 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:29:09,812 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 13:29:09,813 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:29:09,814 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:29:09,815 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:29:09,816 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 13:29:09,816 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:29:09,978 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:29:09,980 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:29:10,182 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:29:10,748 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 63f9faa997b6b842c7cd2dc4e427e787).
+2026-03-23 13:29:12,766 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 13:38:16,332 [INFO] discord.client: logging in using static token
+2026-03-23 13:38:16,937 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:38:16,938 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:38:16,942 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 13:38:16,942 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:38:16,943 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:38:16,943 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:38:16,944 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 13:38:16,944 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:38:17,118 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:38:17,119 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:38:17,120 [ERROR] bot: Blad ladowania cogs.ostrzezenia: Extension 'cogs.ostrzezenia' could not be loaded or found.
+2026-03-23 13:38:17,328 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:38:17,780 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9c24e5a8ab38b4c2c48cc75f75ece49c).
+2026-03-23 13:38:19,787 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 13:40:26,296 [INFO] discord.client: logging in using static token
+2026-03-23 13:40:27,024 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:40:27,024 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:40:27,028 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 13:40:27,029 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:40:27,029 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:40:27,030 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:40:27,030 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 13:40:27,031 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:40:27,199 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:40:27,200 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:40:27,205 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 13:40:27,432 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:40:27,960 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0675276e01a10436cc11e0889d37e499).
+2026-03-23 13:40:29,984 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 13:45:44,321 [INFO] discord.client: logging in using static token
+2026-03-23 13:45:44,803 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:45:44,805 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:45:44,812 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 13:45:44,814 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:45:44,815 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:45:44,816 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:45:44,816 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 13:45:44,817 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:45:44,988 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:45:44,990 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:45:44,991 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 13:45:45,200 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:45:45,698 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2c5183927563745622fc41b8636fac42).
+2026-03-23 13:45:47,709 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 13:56:36,828 [INFO] discord.client: logging in using static token
+2026-03-23 13:56:37,260 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:56:37,260 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:56:37,264 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 13:56:37,265 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:56:37,266 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:56:37,267 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:56:37,267 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 13:56:37,267 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:56:37,423 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:56:37,427 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:56:37,428 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 13:56:37,666 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:56:38,172 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: e4e4449e5ee1827af3a7c2c1b14ac9f0).
+2026-03-23 13:56:40,235 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 13:59:30,098 [INFO] discord.client: logging in using static token
+2026-03-23 13:59:30,617 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 13:59:30,617 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 13:59:30,617 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 13:59:30,618 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 13:59:30,618 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 13:59:30,619 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 13:59:30,619 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 13:59:30,620 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 13:59:30,785 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 13:59:30,787 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 13:59:30,788 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 13:59:31,046 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 13:59:31,534 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 37887b155dcf4f0731f988fc0cd08162).
+2026-03-23 13:59:33,548 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:07:03,967 [INFO] discord.client: logging in using static token
+2026-03-23 14:07:04,468 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:07:04,469 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:07:04,469 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:07:04,470 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:07:04,472 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:07:04,473 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:07:04,473 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:07:04,473 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:07:04,638 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:07:04,640 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:07:04,642 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:07:04,836 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:07:05,321 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 64deab92d55986ecd00f403ae8300025).
+2026-03-23 14:07:07,342 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:07:26,752 [ERROR] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\autoresponder.py", line 46, in on_message
+    await message.add_reaction(emoji)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\message.py", line 1543, in add_reaction
+    await self._state.http.add_reaction(self.channel.id, self.id, emoji)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 10014): Unknown Emoji
+2026-03-23 14:08:48,758 [INFO] discord.client: logging in using static token
+2026-03-23 14:08:49,249 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:08:49,251 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:08:49,251 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:08:49,254 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:08:49,257 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:08:49,258 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:08:49,258 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:08:49,259 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:08:49,554 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:08:49,556 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:08:49,557 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:08:49,774 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:08:50,291 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4b7a5076957380df4bdf4a5dcafae9ea).
+2026-03-23 14:08:52,298 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:09:06,412 [ERROR] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\autoresponder.py", line 47, in on_message
+    await message.add_reaction(emoji)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\message.py", line 1543, in add_reaction
+    await self._state.http.add_reaction(self.channel.id, self.id, emoji)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 10014): Unknown Emoji
+2026-03-23 14:09:40,742 [ERROR] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\autoresponder.py", line 47, in on_message
+    await message.add_reaction(emoji)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\message.py", line 1543, in add_reaction
+    await self._state.http.add_reaction(self.channel.id, self.id, emoji)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 10014): Unknown Emoji
+2026-03-23 14:14:54,398 [INFO] discord.client: logging in using static token
+2026-03-23 14:14:54,912 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:14:54,914 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:14:54,914 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:14:54,916 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:14:54,920 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:14:54,921 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:14:54,922 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:14:54,923 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:14:55,106 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:14:55,108 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:14:55,109 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:14:55,321 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:14:55,755 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 537e4e7f78871c462d6dccd56c0bf603).
+2026-03-23 14:14:57,769 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:21:57,217 [INFO] discord.client: logging in using static token
+2026-03-23 14:21:57,717 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:21:57,718 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:21:57,719 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:21:57,719 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:21:57,722 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:21:57,723 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:21:57,723 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:21:57,724 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:21:57,893 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:21:57,896 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:21:57,897 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:21:58,105 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:21:58,643 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4accb8844eb720a94c2f7037aa669b78).
+2026-03-23 14:22:00,657 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:39:53,735 [INFO] discord.client: logging in using static token
+2026-03-23 14:39:54,200 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:39:54,202 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:39:54,202 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:39:54,203 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:39:54,205 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:39:54,205 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:39:54,205 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:39:54,207 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:39:54,379 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:39:54,381 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:39:54,383 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:39:54,617 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:39:55,142 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: b12886dad8913be703f1dd7825a80a0f).
+2026-03-23 14:39:57,156 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:41:55,160 [INFO] discord.client: logging in using static token
+2026-03-23 14:41:55,870 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:41:55,871 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:41:55,871 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:41:55,872 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:41:55,872 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:41:55,873 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:41:55,873 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:41:55,875 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:41:56,079 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:41:56,081 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:41:56,082 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:41:56,315 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:41:56,826 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 09c942580c8bc0a2659f3b556b89371d).
+2026-03-23 14:41:58,871 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 14:43:19,972 [INFO] discord.client: logging in using static token
+2026-03-23 14:43:20,401 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 14:43:20,402 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 14:43:20,402 [ERROR] bot: Blad ladowania cogs.leveling: Extension 'cogs.leveling' could not be loaded or found.
+2026-03-23 14:43:20,403 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 14:43:20,404 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 14:43:20,405 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 14:43:20,405 [ERROR] bot: Blad ladowania cogs.weryfikacja: Extension 'cogs.weryfikacja' could not be loaded or found.
+2026-03-23 14:43:20,407 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 14:43:20,567 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 14:43:20,569 [INFO] bot: Zaladowano: cogs.tupper
+2026-03-23 14:43:20,570 [INFO] bot: Zaladowano: cogs.ostrzezenia
+2026-03-23 14:43:20,851 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 14:43:21,446 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2cb7fb29d3dc5d974c96d2dbe28d9374).
+2026-03-23 14:43:23,469 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 16:12:08,022 [WARNING] discord.gateway: Shard ID None has stopped responding to the gateway. Closing and restarting.
+2026-03-23 16:12:08,340 [INFO] discord.gateway: Shard ID None session has been invalidated.
+2026-03-23 16:12:13,965 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: e53276b3292c4eab678013b19dc5b4c4).
+2026-03-23 16:12:15,985 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)
+2026-03-23 16:39:43,260 [ERROR] discord.client: Attempting a reconnect in 1.69s
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1562, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1178, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1209, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\client.py", line 1076, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\client.py", line 734, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1239, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1568, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-03-23 16:39:44,987 [ERROR] discord.client: Attempting a reconnect in 2.12s
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1562, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1178, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1209, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 983, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\client.py", line 1076, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\client.py", line 734, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1239, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\aiohttp\connector.py", line 1568, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-03-23 16:39:47,425 [INFO] discord.gateway: Shard ID None session has been invalidated.
+2026-03-23 16:39:53,339 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: cdb1fc3dad028eb7388993e0a12779ae).
+2026-03-23 16:39:55,357 [INFO] bot: Bot uruchomiony jako ⟆・𝑀𝑈𝑆𝐸𝑈𝑀 𝑂𝐹 𝑴𝑨𝑳𝑰𝑪𝑬#5980 (ID: 1485370140684976278)

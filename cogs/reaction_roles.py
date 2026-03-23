@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
 import config
@@ -20,14 +21,15 @@ class ReactionRoles(commands.Cog):
             except Exception:
                 pass
 
-            # reakcje autorole (bez zweryfikowanego)
-            try:
-                ch = guild.get_channel(config.AUTOROLE_CHANNEL_ID)
-                msg = await ch.fetch_message(config.AUTOROLE_MESSAGE_ID)
-                for emoji in config.REACTION_ROLES.keys():
-                    await msg.add_reaction(emoji)
-            except Exception:
-                pass
+            # reakcje autorole
+            for msg_id, emojis in config.REACTION_ROLES.items():
+                try:
+                    ch = guild.get_channel(config.AUTOROLE_CHANNEL_ID)
+                    msg = await ch.fetch_message(msg_id)
+                    for emoji in emojis.keys():
+                        await msg.add_reaction(emoji)
+                except Exception:
+                    pass
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload: discord.RawReactionActionEvent):
@@ -47,8 +49,8 @@ class ReactionRoles(commands.Cog):
             return
 
         # autorole
-        if payload.message_id == config.AUTOROLE_MESSAGE_ID:
-            role_id = config.REACTION_ROLES.get(emoji)
+        if payload.message_id in config.REACTION_ROLES:
+            role_id = config.REACTION_ROLES[payload.message_id].get(emoji)
             if role_id:
                 role = guild.get_role(role_id)
                 if role and member:
@@ -62,11 +64,11 @@ class ReactionRoles(commands.Cog):
         if payload.message_id == config.VERIFY_MESSAGE_ID:
             return
 
-        if payload.message_id == config.AUTOROLE_MESSAGE_ID:
+        if payload.message_id in config.REACTION_ROLES:
             guild = self.bot.get_guild(payload.guild_id)
             member = guild.get_member(payload.user_id)
             emoji = str(payload.emoji)
-            role_id = config.REACTION_ROLES.get(emoji)
+            role_id = config.REACTION_ROLES[payload.message_id].get(emoji)
             if role_id:
                 role = guild.get_role(role_id)
                 if role and member:

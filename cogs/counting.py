@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
 import json
@@ -6,7 +7,7 @@ import config
 
 COUNT_FILE = "counting.json"
 
-CORRECT_EMOJI = "<a:1477805833260634182:1485375937561362482>"
+CORRECT_EMOJI = "<a:checkmark:1484522545519525949>"
 WRONG_EMOJI = "<:936060insanelaughingemoji:1485375808422805514>"
 
 def load():
@@ -34,7 +35,6 @@ class Counting(commands.Cog):
         try:
             number = int(message.content.strip())
         except ValueError:
-            await message.delete()
             return
 
         expected = self.data["count"] + 1
@@ -43,14 +43,11 @@ class Counting(commands.Cog):
             self.data["count"] = number
             save(self.data)
             await message.add_reaction(CORRECT_EMOJI)
-
-            if number % 100 == 0:
-                await message.channel.send(f"Osiagnelismy **{number}**! Super robota!")
         else:
             await message.add_reaction(WRONG_EMOJI)
             await message.channel.send(
-                f"{message.author.mention} pomylil sie! Nastepna liczba to **{expected}**, ale odliczanie resetuje sie do **0**!",
-                delete_after=5
+                f"<:sideeye:1484559896920850442> {message.author.mention}, zgubiłeś rytm. W tym mieście nie ma miejsca na pomyłki. Odliczanie zostało zresetowane.",
+                delete_after=10
             )
             self.data = {"count": 0}
             save(self.data)

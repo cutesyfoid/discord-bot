@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -8,12 +9,14 @@ import time
 import config
 
 YTDL_OPTS = {
-    "format": "bestaudio[ext=webm]/bestaudio[ext=m4a]/bestaudio/best",
+    "format": "bestaudio/best",
     "noplaylist": False,
     "quiet": True,
     "default_search": "ytsearch",
-    "source_address": "0.0.0.0",
-    "cookiefile": "cookies.txt",
+    "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+    "restrictfilenames": True,
+    "nocheckcertificate": True,
+    "no_warnings": True,
 }
 
 YTDL_SEARCH_OPTS = {
@@ -21,8 +24,9 @@ YTDL_SEARCH_OPTS = {
     "default_search": "ytsearch5",
     "noplaylist": True,
     "extract_flat": True,
-    "cookiefile": "cookies.txt",
 }
+
+FFMPEG_PATH = "ffmpeg.exe"
 
 FFMPEG_OPTS = {
     "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
@@ -46,11 +50,17 @@ class MusicSource(discord.PCMVolumeTransformer):
     async def from_url(cls, url, loop=None):
         loop = loop or asyncio.get_event_loop()
         data = await loop.run_in_executor(
-            None, lambda: ytdl.extract_info(url, download=False)
+            None, lambda: ytdl.extract_info(url, download=True)
         )
         if "entries" in data:
             data = data["entries"][0]
-        return cls(discord.FFmpegPCMAudio(data["url"], **FFMPEG_OPTS), data=data)
+        filename = ytdl.prepare_filename(data)
+        ffmpeg_source = discord.FFmpegPCMAudio(
+            filename,
+            executable=FFMPEG_PATH,
+            options="-vn"
+        )
+        return cls(ffmpeg_source, data=data)
 
 
 def fmt_duration(seconds):
@@ -86,8 +96,12 @@ class Muzyka(commands.Cog):
     async def play_next(self, guild_id, voice_client):
         q = self.get_queue(guild_id)
         if self.loop_song.get(guild_id) and self.current.get(guild_id):
-            source = await MusicSource.from_url(self.current[guild_id].url, loop=self.bot.loop)
-            self.current[guild_id] = source
+            try:
+                source = await MusicSource.from_url(self.current[guild_id].url, loop=self.bot.loop)
+                self.current[guild_id] = source
+            except Exception:
+                self.current[guild_id] = None
+                return
         elif q:
             source = q.pop(0)
             if self.loop_queue.get(guild_id) and self.current.get(guild_id):
@@ -111,11 +125,14 @@ class Muzyka(commands.Cog):
 
     async def search_youtube(self, query: str):
         loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(
-            None, lambda: ytdl_search.extract_info(f"ytsearch5:{query}", download=False)
-        )
-        if "entries" in data:
-            return data["entries"][:5]
+        try:
+            data = await loop.run_in_executor(
+                None, lambda: ytdl_search.extract_info(f"ytsearch5:{query}", download=False)
+            )
+            if "entries" in data:
+                return data["entries"][:5]
+        except Exception:
+            pass
         return []
 
     @app_commands.command(name="play", description="Odtwórz muzykę z YouTube")
@@ -130,8 +147,17 @@ class Muzyka(commands.Cog):
         await interaction.response.defer()
         vc = interaction.guild.voice_client
         if not vc:
-            vc = await interaction.user.voice.channel.connect()
-        source = await MusicSource.from_url(query, loop=self.bot.loop)
+            try:
+                vc = await interaction.user.voice.channel.connect()
+            except Exception as e:
+                await interaction.followup.send(f"Nie mogę dołączyć do kanału: {e}")
+                return
+        try:
+            source = await MusicSource.from_url(query, loop=self.bot.loop)
+        except Exception as e:
+            await interaction.followup.send(f"Błąd podczas pobierania audio: {e}")
+            return
+
         q = self.get_queue(interaction.guild_id)
         if vc.is_playing() or vc.is_paused():
             q.append(source)
@@ -143,8 +169,12 @@ class Muzyka(commands.Cog):
         else:
             self.current[interaction.guild_id] = source
             self.start_time[interaction.guild_id] = time.time()
-            q.insert(0, source)
-            await self.play_next(interaction.guild_id, vc)
+            vc.play(
+                source,
+                after=lambda e: asyncio.run_coroutine_threadsafe(
+                    self.play_next(interaction.guild_id, vc), self.bot.loop
+                )
+            )
             await interaction.followup.send(embed=discord.Embed(
                 title="Teraz gra",
                 description=f"[{source.title}]({source.url})\nCzas: {fmt_duration(source.duration)}",
@@ -164,12 +194,12 @@ class Muzyka(commands.Cog):
             for r in results if r.get("title")
         ]
 
-    @app_commands.command(name="pause", description="Pauzuj muzykę")
+    @app_commands.command(name="pause", description="Zapauzuj muzykę")
     async def pause(self, interaction: discord.Interaction):
         vc = interaction.guild.voice_client
         if vc and vc.is_playing():
             vc.pause()
-            await interaction.response.send_message("Zapauzowano.")
+            await interaction.response.send_message("Zapauzowano ⏸️")
         else:
             await interaction.response.send_message("Nic nie gra.", ephemeral=True)
 
@@ -178,7 +208,7 @@ class Muzyka(commands.Cog):
         vc = interaction.guild.voice_client
         if vc and vc.is_paused():
             vc.resume()
-            await interaction.response.send_message("Wznowiono.")
+            await interaction.response.send_message("Wznowiono ▶️")
         else:
             await interaction.response.send_message("Muzyka nie jest zapauzowana.", ephemeral=True)
 
@@ -187,7 +217,7 @@ class Muzyka(commands.Cog):
         vc = interaction.guild.voice_client
         if vc and (vc.is_playing() or vc.is_paused()):
             vc.stop()
-            await interaction.response.send_message("Pominięto!")
+            await interaction.response.send_message("Pominięto ⏭️")
         else:
             await interaction.response.send_message("Nic nie gra.", ephemeral=True)
 
@@ -198,8 +228,9 @@ class Muzyka(commands.Cog):
             self.get_queue(interaction.guild_id).clear()
             self.loop_song[interaction.guild_id] = False
             self.loop_queue[interaction.guild_id] = False
+            self.current[interaction.guild_id] = None
             await vc.disconnect()
-            await interaction.response.send_message("Zatrzymano i rozłączono.")
+            await interaction.response.send_message("Zatrzymano i rozłączono ⏹️")
         else:
             await interaction.response.send_message("Bot nie jest na kanale.", ephemeral=True)
 
@@ -208,7 +239,7 @@ class Muzyka(commands.Cog):
         gid = interaction.guild_id
         self.loop_song[gid] = not self.loop_song.get(gid, False)
         self.loop_queue[gid] = False
-        status = "włączony" if self.loop_song[gid] else "wyłączony"
+        status = "włączony 🔂" if self.loop_song[gid] else "wyłączony"
         await interaction.response.send_message(f"Loop piosenki: **{status}**")
 
     @app_commands.command(name="loopqueue", description="Zapętl całą kolejkę")
@@ -216,7 +247,7 @@ class Muzyka(commands.Cog):
         gid = interaction.guild_id
         self.loop_queue[gid] = not self.loop_queue.get(gid, False)
         self.loop_song[gid] = False
-        status = "włączony" if self.loop_queue[gid] else "wyłączony"
+        status = "włączony 🔁" if self.loop_queue[gid] else "wyłączony"
         await interaction.response.send_message(f"Loop kolejki: **{status}**")
 
     @app_commands.command(name="shuffle", description="Przetasuj kolejkę")
@@ -226,7 +257,7 @@ class Muzyka(commands.Cog):
             await interaction.response.send_message("Kolejka jest pusta!", ephemeral=True)
             return
         random.shuffle(q)
-        await interaction.response.send_message("Kolejka przetasowana!")
+        await interaction.response.send_message("Kolejka przetasowana! 🔀")
 
     @app_commands.command(name="nowplaying", description="Pokaż co teraz gra")
     async def nowplaying(self, interaction: discord.Interaction):
@@ -243,11 +274,11 @@ class Muzyka(commands.Cog):
         bar = "▬" * filled + "🔘" + "▬" * (bar_len - filled)
         loop_status = ""
         if self.loop_song.get(gid):
-            loop_status = " | Loop: piosenka"
+            loop_status = " | Loop: piosenka 🔂"
         elif self.loop_queue.get(gid):
-            loop_status = " | Loop: kolejka"
+            loop_status = " | Loop: kolejka 🔁"
         e = discord.Embed(
-            title="Teraz gra",
+            title="Teraz gra 🎵",
             description=f"[{source.title}]({source.url})\n\n{bar}\n`{fmt_duration(elapsed)}` / `{fmt_duration(duration)}`{loop_status}",
             color=0x9b59b6
         )
@@ -266,18 +297,22 @@ class Muzyka(commands.Cog):
             return
         await interaction.response.defer()
         vc.stop()
-
         loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(
-            None, lambda: ytdl.extract_info(source.url, download=False)
-        )
-        if "entries" in data:
-            data = data["entries"][0]
-        fresh_url = data["url"]
+        try:
+            data = await loop.run_in_executor(
+                None, lambda: ytdl.extract_info(source.url, download=False)
+            )
+            if "entries" in data:
+                data = data["entries"][0]
+            fresh_url = data["url"]
+        except Exception as e:
+            await interaction.followup.send(f"Błąd podczas przewijania: {e}")
+            return
 
         new_source = discord.PCMVolumeTransformer(
             discord.FFmpegPCMAudio(
                 fresh_url,
+                executable=FFMPEG_PATH,
                 before_options=f"-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5 -ss {sekundy}",
                 options="-vn"
             )
@@ -295,7 +330,7 @@ class Muzyka(commands.Cog):
                 self.play_next(gid, vc), self.bot.loop
             )
         )
-        await interaction.followup.send(f"Przewinięto do `{fmt_duration(sekundy)}`")
+        await interaction.followup.send(f"Przewinięto do `{fmt_duration(sekundy)}` ⏩")
 
     @app_commands.command(name="remove", description="Usuń utwór z kolejki")
     @app_commands.describe(pozycja="Numer pozycji w kolejce")
@@ -314,7 +349,6 @@ class Muzyka(commands.Cog):
     @app_commands.command(name="queue", description="Pokaż kolejkę")
     async def show_queue(self, interaction: discord.Interaction):
         q = self.get_queue(interaction.guild_id)
-        vc = interaction.guild.voice_client
         source = self.current.get(interaction.guild_id)
         if not source and not q:
             await interaction.response.send_message("Kolejka jest pusta.", ephemeral=True)
@@ -326,7 +360,7 @@ class Muzyka(commands.Cog):
             desc += f"`{i}.` [{s.title}]({s.url}) `{fmt_duration(s.duration)}`\n"
         if len(q) > 15:
             desc += f"\n...i {len(q)-15} więcej"
-        e = discord.Embed(title="Kolejka", description=desc or "Pusta", color=0x9b59b6)
+        e = discord.Embed(title="Kolejka 🎶", description=desc or "Pusta", color=0x9b59b6)
         await interaction.response.send_message(embed=e)
 
     @app_commands.command(name="volume", description="Zmień głośność (0-100)")
@@ -335,7 +369,7 @@ class Muzyka(commands.Cog):
         vc = interaction.guild.voice_client
         if vc and vc.source:
             vc.source.volume = max(0, min(poziom, 100)) / 100
-            await interaction.response.send_message(f"Głośność: **{poziom}%**")
+            await interaction.response.send_message(f"Głośność: **{poziom}%** 🔊")
         else:
             await interaction.response.send_message("Nic nie gra.", ephemeral=True)
 
