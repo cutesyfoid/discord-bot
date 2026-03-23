@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import logging
+import subprocess
+subprocess.run(["pip", "install", "-U", "yt-dlp"], capture_output=True)
 
 load_dotenv()
 
