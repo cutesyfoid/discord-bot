@@ -13,6 +13,7 @@ YTDL_OPTS = {
     "quiet": True,
     "default_search": "ytsearch",
     "source_address": "0.0.0.0",
+    "cookiefile": "cookies.txt",
 }
 
 YTDL_SEARCH_OPTS = {
@@ -20,6 +21,7 @@ YTDL_SEARCH_OPTS = {
     "default_search": "ytsearch5",
     "noplaylist": True,
     "extract_flat": True,
+    "cookiefile": "cookies.txt",
 }
 
 FFMPEG_OPTS = {
@@ -265,7 +267,6 @@ class Muzyka(commands.Cog):
         await interaction.response.defer()
         vc.stop()
 
-        # pobierz swiezy URL
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(
             None, lambda: ytdl.extract_info(source.url, download=False)
