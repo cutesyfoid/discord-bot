@@ -1,0 +1,330 @@
+2026-03-22 21:14:28,003 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 21:14:28,004 [INFO] discord.client: logging in using static token
+2026-03-22 21:16:12,520 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 21:16:12,521 [INFO] discord.client: logging in using static token
+2026-03-22 21:16:14,343 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: b5fd090736dcdf67bad981df9632ebfb).
+2026-03-22 21:33:27,928 [INFO] discord.gateway: Shard ID None has successfully RESUMED session b5fd090736dcdf67bad981df9632ebfb.
+2026-03-22 21:46:01,759 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 21:46:01,760 [INFO] discord.client: logging in using static token
+2026-03-22 21:46:03,273 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: debadfa42e4a8db8a128a5b3226cc3fd).
+2026-03-22 21:56:15,873 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 21:56:15,874 [INFO] discord.client: logging in using static token
+2026-03-22 21:56:17,534 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4d66ba0daec52ab001ad8faaea481c07).
+2026-03-22 22:01:16,614 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 22:01:16,615 [INFO] discord.client: logging in using static token
+2026-03-22 22:01:18,003 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 06c2a210cb5b175a3ffc8de391ff95f1).
+2026-03-22 22:07:11,954 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 22:07:11,955 [INFO] discord.client: logging in using static token
+2026-03-22 22:07:13,684 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 133b08b5e564016f05bd42656ed86aa8).
+2026-03-22 22:19:48,959 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 22:19:48,960 [INFO] discord.client: logging in using static token
+2026-03-22 22:19:50,595 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: d49afd9d693f685baf9f5538bf5ddf91).
+2026-03-22 22:20:16,393 [ERROR] discord.app_commands.tree: Ignoring exception in command 'play'
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 86, in play
+    vc = await interaction.user.voice.channel.connect()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\abc.py", line 2144, in connect
+    voice: T = cls(client, self)
+               ~~~^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\voice_client.py", line 222, in __init__
+    raise RuntimeError('davey library needed in order to use voice')
+RuntimeError: davey library needed in order to use voice
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'play' raised an exception: RuntimeError: davey library needed in order to use voice
+2026-03-22 22:22:03,011 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-03-22 22:22:03,012 [INFO] discord.client: logging in using static token
+2026-03-22 22:22:04,599 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: d5277758a29cc49925a29343b3f7c3da).
+2026-03-22 22:23:57,382 [ERROR] discord.app_commands.tree: Ignoring exception in command 'play'
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 86, in play
+    vc = await interaction.user.voice.channel.connect()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\abc.py", line 2144, in connect
+    voice: T = cls(client, self)
+               ~~~^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\voice_client.py", line 222, in __init__
+    raise RuntimeError('davey library needed in order to use voice')
+RuntimeError: davey library needed in order to use voice
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'play' raised an exception: RuntimeError: davey library needed in order to use voice
+2026-03-22 22:25:08,332 [INFO] discord.client: logging in using static token
+2026-03-22 22:25:09,797 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 24dcdf6aa4af4b05abd863519ed89450).
+2026-03-22 22:25:26,167 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 22:25:26,168 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 22:25:26,406 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 22:25:26,546 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 22:29:28,761 [INFO] discord.player: ffmpeg process 14264 successfully terminated with return code of 0.
+2026-03-22 22:35:10,457 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 22:35:10,462 [INFO] discord.player: ffmpeg process 2632 has not terminated. Waiting to terminate...
+2026-03-22 22:35:10,465 [INFO] discord.player: ffmpeg process 2632 should have terminated with a return code of 1.
+2026-03-22 22:35:40,717 [INFO] discord.client: logging in using static token
+2026-03-22 22:35:42,431 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: ee010ecdedbc579208831c8382d3e862).
+2026-03-22 22:36:55,690 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 22:36:55,691 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 22:36:55,928 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 22:36:56,072 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 22:42:21,051 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 22:42:21,053 [INFO] discord.player: ffmpeg process 14528 has not terminated. Waiting to terminate...
+2026-03-22 22:42:21,058 [INFO] discord.player: ffmpeg process 14528 should have terminated with a return code of 1.
+2026-03-22 22:43:44,924 [INFO] discord.client: logging in using static token
+2026-03-22 22:43:46,552 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: dc6ee0afd4f0220480810466cd123dca).
+2026-03-22 22:44:06,541 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 22:44:06,542 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 22:44:06,779 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 22:44:06,913 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 22:44:08,544 [INFO] discord.player: ffmpeg process 15168 has not terminated. Waiting to terminate...
+2026-03-22 22:44:08,550 [INFO] discord.player: ffmpeg process 15168 should have terminated with a return code of 1.
+2026-03-22 22:45:05,880 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 22:45:19,966 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 22:45:19,968 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 22:45:20,215 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 22:45:20,372 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 22:45:21,935 [INFO] discord.player: ffmpeg process 5988 has not terminated. Waiting to terminate...
+2026-03-22 22:45:21,941 [INFO] discord.player: ffmpeg process 5988 should have terminated with a return code of 1.
+2026-03-22 22:46:34,776 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 22:46:44,897 [INFO] discord.client: logging in using static token
+2026-03-22 22:46:46,342 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: dcceeb653f5ba320dfc1aa62dac0de00).
+2026-03-22 22:47:07,741 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 22:47:07,742 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 22:47:07,979 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 22:47:08,109 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 22:47:09,868 [INFO] discord.player: ffmpeg process 22520 has not terminated. Waiting to terminate...
+2026-03-22 22:47:09,880 [INFO] discord.player: ffmpeg process 22520 should have terminated with a return code of 1.
+2026-03-22 22:48:15,170 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 22:49:47,212 [INFO] discord.client: logging in using static token
+2026-03-22 22:49:48,609 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: e582462632b1381c7445d3f3c578db06).
+2026-03-22 22:50:46,053 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 22:50:46,053 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 22:50:46,297 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 22:50:46,480 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 22:56:08,477 [INFO] discord.player: ffmpeg process 14872 successfully terminated with return code of 0.
+2026-03-22 22:58:07,742 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 22:58:07,743 [INFO] discord.player: ffmpeg process 23172 has not terminated. Waiting to terminate...
+2026-03-22 22:58:07,748 [INFO] discord.player: ffmpeg process 23172 should have terminated with a return code of 1.
+2026-03-22 23:02:56,485 [INFO] discord.client: logging in using static token
+2026-03-22 23:02:58,088 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1e9c5279998b80bff71bdcdb98a32a9b).
+2026-03-22 23:03:59,011 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:03:59,012 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:03:59,251 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 23:03:59,401 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 23:05:36,904 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 23:05:36,907 [INFO] discord.player: ffmpeg process 9868 has not terminated. Waiting to terminate...
+2026-03-22 23:05:36,911 [INFO] discord.player: ffmpeg process 9868 should have terminated with a return code of 1.
+2026-03-22 23:05:53,062 [INFO] discord.client: logging in using static token
+2026-03-22 23:05:54,553 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: bca30b3559c0617b218bdc123fed2a85).
+2026-03-22 23:06:14,234 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:06:14,235 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:06:14,479 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 23:06:14,614 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 23:09:22,341 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 23:09:22,355 [INFO] discord.player: ffmpeg process 22900 has not terminated. Waiting to terminate...
+2026-03-22 23:09:22,362 [INFO] discord.player: ffmpeg process 22900 should have terminated with a return code of 1.
+2026-03-22 23:10:03,686 [INFO] discord.client: logging in using static token
+2026-03-22 23:10:04,164 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:10:04,166 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:10:04,173 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:10:04,174 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:10:04,175 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:10:04,176 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:10:04,177 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:10:04,178 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:10:04,334 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:10:04,595 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:10:05,406 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: d0bf649d5cbd103864b03c626a7b3454).
+2026-03-22 23:10:07,411 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:10:38,280 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:10:38,281 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:10:38,523 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 23:10:38,677 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 23:10:45,702 [INFO] discord.player: ffmpeg process 6172 has not terminated. Waiting to terminate...
+2026-03-22 23:10:45,713 [INFO] discord.player: ffmpeg process 6172 should have terminated with a return code of 1.
+2026-03-22 23:10:46,074 [INFO] discord.player: ffmpeg process 14616 successfully terminated with return code of 0.
+2026-03-22 23:12:39,780 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 23:13:31,907 [INFO] discord.client: logging in using static token
+2026-03-22 23:13:32,512 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:13:32,514 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:13:32,519 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:13:32,521 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:13:32,521 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:13:32,522 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:13:32,523 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:13:32,524 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:13:32,704 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:13:32,917 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:13:33,521 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1d0b7e3dda7d3a20dc3fb0146a23c124).
+2026-03-22 23:13:35,538 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:13:57,600 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:13:57,602 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:13:57,837 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: warsaw12005.discord.media:443
+2026-03-22 23:13:57,965 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 23:14:08,470 [INFO] discord.player: ffmpeg process 16368 has not terminated. Waiting to terminate...
+2026-03-22 23:14:08,476 [INFO] discord.player: ffmpeg process 16368 should have terminated with a return code of 1.
+2026-03-22 23:15:07,120 [INFO] discord.player: ffmpeg process 20892 has not terminated. Waiting to terminate...
+2026-03-22 23:15:07,135 [INFO] discord.player: ffmpeg process 20892 should have terminated with a return code of 1.
+2026-03-22 23:17:55,514 [ERROR] discord.app_commands.tree: Ignoring exception in autocomplete for 'play' (Guild: 1485366823762530357, User: 1437902748153806941)
+Traceback (most recent call last):
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\tree.py", line 1289, in _call
+    await command._invoke_autocomplete(interaction, focused, namespace)
+  File "C:\Users\nstec\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\app_commands\commands.py", line 919, in _invoke_autocomplete
+    choices = await param.autocomplete(binding, interaction, value)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 156, in play_autocomplete
+    results = await self.search_youtube(current)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nstec\Downloads\kody kody dla ochlody\discord-bot\cogs\muzyka.py", line 115, in search_youtube
+    if "entries" in data:
+       ^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+2026-03-22 23:18:24,669 [INFO] discord.player: ffmpeg process 3616 has not terminated. Waiting to terminate...
+2026-03-22 23:18:24,676 [INFO] discord.player: ffmpeg process 3616 should have terminated with a return code of 1.
+2026-03-22 23:23:34,913 [INFO] discord.player: ffmpeg process 19088 successfully terminated with return code of 0.
+2026-03-22 23:24:42,836 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 23:24:53,930 [INFO] discord.client: logging in using static token
+2026-03-22 23:24:54,454 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:24:54,456 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:24:54,464 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:24:54,466 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:24:54,467 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:24:54,469 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:24:54,470 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:24:54,471 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:24:54,634 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:24:55,076 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:24:55,555 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 86a97d19d34a20271da8f5fba593f7ad).
+2026-03-22 23:24:57,565 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:26:28,432 [INFO] discord.client: logging in using static token
+2026-03-22 23:26:29,355 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:26:29,356 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:26:29,364 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:26:29,365 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:26:29,367 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:26:29,368 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:26:29,369 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:26:29,370 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:26:29,530 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:26:29,922 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:26:30,457 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 411d16764112bcbaf675ba6f78e9d5f0).
+2026-03-22 23:26:32,475 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:40:05,360 [INFO] discord.client: logging in using static token
+2026-03-22 23:40:05,791 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:40:05,792 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:40:05,799 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:40:05,800 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:40:05,801 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:40:05,801 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:40:05,803 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:40:05,803 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:40:05,970 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:40:06,279 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:40:06,891 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: e144f6aec9a11f16b12ed1394ad78de2).
+2026-03-22 23:40:08,904 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:41:01,072 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:41:01,072 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:41:01,345 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw03-6bd24a83.discord.media:2083
+2026-03-22 23:41:01,469 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 23:42:37,427 [INFO] discord.player: ffmpeg process 16312 has not terminated. Waiting to terminate...
+2026-03-22 23:42:37,432 [INFO] discord.player: ffmpeg process 16312 should have terminated with a return code of 1.
+2026-03-22 23:42:47,285 [INFO] discord.player: ffmpeg process 2648 has not terminated. Waiting to terminate...
+2026-03-22 23:42:47,292 [INFO] discord.player: ffmpeg process 2648 should have terminated with a return code of 1.
+2026-03-22 23:44:59,171 [INFO] discord.player: ffmpeg process 15444 successfully terminated with return code of 0.
+2026-03-22 23:50:03,468 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 23:50:34,899 [INFO] discord.client: logging in using static token
+2026-03-22 23:50:35,402 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:50:35,409 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:50:35,416 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:50:35,417 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:50:35,419 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:50:35,420 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:50:35,421 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:50:35,424 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:50:35,587 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:50:35,807 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:50:36,419 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4164f25803d0057664a604d5e2da4924).
+2026-03-22 23:50:38,427 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:53:13,467 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:53:13,468 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:53:13,797 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw03-6bd24a83.discord.media:2083
+2026-03-22 23:53:13,929 [INFO] discord.voice_state: Voice connection complete.
+2026-03-22 23:53:25,173 [INFO] discord.player: ffmpeg process 23680 has not terminated. Waiting to terminate...
+2026-03-22 23:53:25,180 [INFO] discord.player: ffmpeg process 23680 should have terminated with a return code of 1.
+2026-03-22 23:56:29,436 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-22 23:56:29,455 [INFO] discord.player: ffmpeg process 23752 has not terminated. Waiting to terminate...
+2026-03-22 23:56:29,463 [INFO] discord.player: ffmpeg process 23752 should have terminated with a return code of 1.
+2026-03-22 23:56:37,580 [INFO] discord.client: logging in using static token
+2026-03-22 23:56:38,005 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-22 23:56:38,007 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-22 23:56:38,014 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-22 23:56:38,015 [INFO] bot: Zaladowano: cogs.logi
+2026-03-22 23:56:38,016 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-22 23:56:38,017 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-22 23:56:38,018 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-22 23:56:38,019 [INFO] bot: Zaladowano: cogs.counting
+2026-03-22 23:56:38,179 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-22 23:56:38,381 [INFO] bot: Slash commands zsynchronizowane
+2026-03-22 23:56:38,922 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2d9e5ab3e225162a4917d16df626d30f).
+2026-03-22 23:56:40,928 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-22 23:57:07,125 [INFO] discord.voice_state: Connecting to voice...
+2026-03-22 23:57:07,127 [INFO] discord.voice_state: Starting voice handshake... (connection attempt 1)
+2026-03-22 23:57:07,411 [INFO] discord.voice_state: Voice handshake complete. Endpoint found: c-waw03-6bd24a83.discord.media:2083
+2026-03-22 23:57:07,531 [INFO] discord.voice_state: Voice connection complete.
+2026-03-23 00:02:03,182 [INFO] discord.voice_state: The voice handshake is being terminated for Channel ID 1485385874966446140 (Guild ID 1485366823762530357)
+2026-03-23 00:02:03,183 [INFO] discord.player: ffmpeg process 21264 has not terminated. Waiting to terminate...
+2026-03-23 00:02:03,187 [INFO] discord.player: ffmpeg process 21264 should have terminated with a return code of 1.
+2026-03-23 00:02:08,403 [INFO] discord.client: logging in using static token
+2026-03-23 00:02:08,883 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 00:02:08,885 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 00:02:08,892 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 00:02:08,893 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 00:02:08,895 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 00:02:08,897 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 00:02:08,900 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 00:02:08,901 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 00:02:09,057 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 00:02:09,239 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 00:02:09,808 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: dcacbe28a7d7ab0159f3fecd43eb9d1c).
+2026-03-23 00:02:11,826 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 00:02:19,517 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "watek" is not found
+2026-03-23 00:03:37,690 [INFO] discord.client: logging in using static token
+2026-03-23 00:03:38,471 [INFO] bot: Zaladowano: cogs.moderacja
+2026-03-23 00:03:38,473 [INFO] bot: Zaladowano: cogs.powitanie
+2026-03-23 00:03:38,479 [INFO] bot: Zaladowano: cogs.leveling
+2026-03-23 00:03:38,481 [INFO] bot: Zaladowano: cogs.logi
+2026-03-23 00:03:38,485 [INFO] bot: Zaladowano: cogs.autoresponder
+2026-03-23 00:03:38,491 [INFO] bot: Zaladowano: cogs.reaction_roles
+2026-03-23 00:03:38,492 [INFO] bot: Zaladowano: cogs.weryfikacja
+2026-03-23 00:03:38,493 [INFO] bot: Zaladowano: cogs.counting
+2026-03-23 00:03:38,652 [INFO] bot: Zaladowano: cogs.muzyka
+2026-03-23 00:03:38,865 [INFO] bot: Slash commands zsynchronizowane
+2026-03-23 00:03:39,336 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9f65a344730d69a6de957eeb1c6f9da1).
+2026-03-23 00:03:41,356 [INFO] bot: Bot uruchomiony jako ezra miller#5980 (ID: 1485370140684976278)
+2026-03-23 00:03:47,764 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "watek" is not found
+2026-03-23 00:20:49,367 [INFO] discord.gateway: Shard ID None session has been invalidated.
