@@ -28,7 +28,7 @@ COGS = [
     "cogs.counting",
     "cogs.muzyka",
     "cogs.tupper",
-    "cogs.ostrzezenia"
+    "cogs.ostrzezenia,"
     "cogs.muzeum",
 ]
 
