@@ -52,8 +52,8 @@ class Powitanie(commands.Cog):
         # Zmień nick
         try:
             expiry_date = member.joined_at + timedelta(days=7)
-            date_str = expiry_date.strftime("%d.%m.%Y")
-            nick = f"౨ৎ ⠀.⠀ {member.name} ⠀[{date_str}]⠀ .ᐟ"
+            date_str = expiry_date.strftime("%d.%m")
+            nick = f"౨ৎ ⠀⠀. ⠀⠀{member.name} ⠀⠀[{date_str}] ⠀⠀.ᐟ"
             await member.edit(nick=nick[:32])
         except discord.Forbidden:
             pass
