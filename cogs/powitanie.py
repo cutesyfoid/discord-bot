@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import discord
 from discord.ext import commands
+from datetime import timedelta
 
 WELCOME_CHANNEL_ID = 1483866196490326058
 
@@ -48,6 +49,14 @@ class Powitanie(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member: discord.Member):
+        # Zmień nick
+        try:
+            expiry_date = member.joined_at + timedelta(days=7)
+            date_str = expiry_date.strftime("%d.%m.%Y")
+            await member.edit(nick=f"౨ৎ  .  {member.name}  {date_str}  .ᐟ")
+        except discord.Forbidden:
+            pass
+
         # Nadaj automatyczne role
         roles = []
         for role_id in AUTO_ROLE_IDS:
