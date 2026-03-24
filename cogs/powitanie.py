@@ -53,7 +53,7 @@ class Powitanie(commands.Cog):
         try:
             expiry_date = member.joined_at + timedelta(days=7)
             date_str = expiry_date.strftime("%d.%m.%Y")
-            await member.edit(nick=f"౨ৎ  .  {member.name}  {date_str}  .ᐟ")
+            await member.edit(nick=f"౨ৎ  ⠀.⠀  {member.name}  ⠀[{date_str}]⠀  .ᐟ")
         except discord.Forbidden:
             pass
 
