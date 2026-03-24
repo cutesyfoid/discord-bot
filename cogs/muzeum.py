@@ -13,7 +13,7 @@ WATKI = [
         "wiadomosc": (
             "ㅤ⠀      ·⠀⠀ ⠀       ⠀⠀   ·⠀⠀            ⠀ ⠀·⠀⠀    \n"
             "       ⠀ ⠀⁭\n"
-            "# .ㅤ                         ・・  𝐌𝐄𝐓𝐑𝐎𝐏𝐎𝐋𝐈𝐓𝐀𝐍    𝐌𝐔𝐒𝐄𝐔𝐌    𝑂𝐹      𝐀𝐑𝐓.    .    .\n"
+            "# .ㅤ                         ・・  𝐌𝐄𝐓𝐑𝐎𝐏𝐎𝐋𝐈𝐓𝐀𝐍    𝐌𝐔𝐒𝐄𝐔𝐌    𝑂𝐅      𝐀𝐑𝐓.    .    .\n"
             "-# .                                                                                  opis     miejsca     pracy\n"
             " ㅤ\n"
             "⠀      ·⠀⠀ ⠀       ⠀⠀   ·⠀⠀            ⠀ ⠀·⠀⠀       \n"
@@ -111,7 +111,7 @@ WATKI = [
             "# .ㅤ                         ・・  𝐎𝐓𝐇𝐄𝐑 .    .    .\n"
             "-# .                                                                                  opis     funkcji\n"
             "⠀      ·⠀⠀ ⠀       ⠀⠀   ·⠀⠀            ⠀ ⠀·⠀⠀    ⠀ ⠀\n"
-            "   〻  ⠀.          ⠀⠀    ⠀⠀Oczywiście, w każdej społeczności miasta potrzebni są także pracownicy w bardziej „codziennych" zawodach. Kawiarnie szukają baristów, w klubach i barach brakuje kelnerów i DJ-ów, a pobliskie kwiaciarnie potrzebują osób do przygotowywania i pakowania prezentów. A jeśli marzysz o własnym biznesie, to droga stoi przed tobą otworem. Nam pozostało życzyć Ci powodzenia i sukcesów w realizacji planów. \n"
+            '   \u3003  \u2800.          \u2800\u2800    \u2800\u2800Oczywi\u015bcie, w ka\u017cdej spo\u0142eczno\u015bci miasta potrzebni s\u0105 tak\u017ce pracownicy w bardziej \u201ecodziennych\u201d zawodach. Kawiarnie szukaj\u0105 barист\u00f3w, w klubach i barach brakuje kelner\u00f3w i DJ-\u00f3w, a pobliskie kwiaciarnie potrzebuj\u0105 os\u00f3b do przygotowywania i pakowania prezent\u00f3w. A je\u015bli marzysz o w\u0142asnym biznesie, to droga stoi przed tob\u0105 otworem. Nam pozosta\u0142o \u017cyczy\u0107 Ci powodzenia i sukces\u00f3w w realizacji plan\u00f3w. \n'
             "ㅤ⠀      ·⠀⠀ ⠀       ⠀⠀   ·⠀⠀            ⠀ ⠀·⠀⠀"
         ),
     },
