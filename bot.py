@@ -28,7 +28,8 @@ COGS = [
     "cogs.counting",
     "cogs.muzyka",
     "cogs.tupper",
-    "cogs.ostrzezenia",
+    "cogs.ostrzezenia"
+    "cogs.muzeum",
 ]
 
 GUILD_ID = 1483866194804084768
