@@ -58,7 +58,7 @@ class Moderacja(commands.Cog):
         )
 
     @app_commands.command(name="clear", description="Usuwa wiadomości z kanału")
-    @app_commands.describe(ilosc="Liczba wiadomości (max 100)")
+    @app_commands.describe(ilosc="Liczba wiadomości (max 67)")
     @app_commands.checks.has_permissions(manage_messages=True)
     async def clear(self, interaction: discord.Interaction, ilosc: int = 10):
         await interaction.response.defer(ephemeral=True)
