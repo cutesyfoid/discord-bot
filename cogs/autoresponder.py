@@ -2,7 +2,6 @@
 import discord
 from discord.ext import commands
 import asyncio
-import config
 
 MEDIA_CHANNEL_IDS = [
     1483866197228523647,
@@ -47,12 +46,6 @@ class Autoresponder(commands.Cog):
                 await message.add_reaction(emoji)
                 await asyncio.sleep(0.5)
             return
-
-        content_lower = message.content.lower()
-        for trigger, response in config.AUTORESPONSES.items():
-            if trigger.lower() in content_lower:
-                await message.channel.send(response)
-                break
 
 async def setup(bot):
     await bot.add_cog(Autoresponder(bot))
