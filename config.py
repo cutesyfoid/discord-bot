@@ -56,12 +56,6 @@ LEVEL_UP_CHANNEL_ID   = 0
 # ---- MUZYKA ----
 DJ_ROLE_ID            = 0
 
-# ---- AUTORESPONDER ----
-AUTORESPONSES = {
-    "gg":    "GG WP!",
-    "pomoc": "Sprawdz kanal #pomoc lub wpisz /help!",
-}
-
 # ---- KOLORY EMBEDOW ----
 COLOR_OK    = 0x2ecc71
 COLOR_ERR   = 0xe74c3c
