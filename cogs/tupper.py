@@ -162,10 +162,9 @@ class Tupper(commands.Cog):
         if message.author.bot or not message.guild:
             return
 
-        content = message.content
+        content = message.content or ""
         attachments = message.attachments
 
-        # Skip if there's no text AND no attachments
         if not content and not attachments:
             return
 
@@ -177,46 +176,46 @@ class Tupper(commands.Cog):
 
         for tupper in tuppers:
             prefix = tupper["prefix"]
-            if content.startswith(prefix):
-                text = content[len(prefix):].strip()
+            if not content.startswith(prefix):
+                continue
 
-                # Allow empty text if there are attachments
-                if not text and not attachments:
-                    return
+            text = content[len(prefix):].strip()
 
+            if not text and not attachments:
+                continue
+
+            try:
+                webhooks = await message.channel.webhooks()
+                webhook = discord.utils.get(webhooks, name="TupperBot")
+                if not webhook:
+                    webhook = await message.channel.create_webhook(name="TupperBot")
+            except discord.Forbidden:
+                await message.channel.send(
+                    "❌ Bot nie ma uprawnień do tworzenia webhooków!", delete_after=5
+                )
+                return
+
+            # Download attachments BEFORE deleting the message
+            files = []
+            for attachment in attachments:
                 try:
-                    webhooks = await message.channel.webhooks()
-                    webhook = discord.utils.get(webhooks, name="TupperBot")
-                    if not webhook:
-                        webhook = await message.channel.create_webhook(name="TupperBot")
-                except discord.Forbidden:
-                    await message.channel.send(
-                        "❌ Bot nie ma uprawnień do tworzenia webhooków!", delete_after=5
-                    )
-                    return
-
-                # Download attachments BEFORE deleting the message,
-                # otherwise Discord invalidates the URLs on deletion
-                files = []
-                for attachment in attachments:
-                    try:
-                        files.append(await attachment.to_file())
-                    except Exception:
-                        pass
-
-                try:
-                    await message.delete()
-                except discord.Forbidden:
+                    files.append(await attachment.to_file())
+                except Exception:
                     pass
 
-                avatar_url = tupper["avatar"] or message.author.display_avatar.url
-                await webhook.send(
-                    content=text or None,
-                    username=tupper["name"],
-                    avatar_url=avatar_url,
-                    files=files or None
-                )
-                break
+            try:
+                await message.delete()
+            except discord.Forbidden:
+                pass
+
+            avatar_url = tupper["avatar"] or message.author.display_avatar.url
+            await webhook.send(
+                content=text if text else None,
+                username=tupper["name"],
+                avatar_url=avatar_url,
+                files=files
+            )
+            break
 
 
 async def setup(bot):
