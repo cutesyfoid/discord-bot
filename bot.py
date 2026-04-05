@@ -52,10 +52,15 @@ class MyBot(commands.Bot):
             except Exception as e:
                 log.error(f"Blad ladowania {cog}: {e}")
 
+        # Instant sync on your main/test guild
         guild = discord.Object(id=GUILD_ID)
         self.tree.copy_global_to(guild=guild)
         await self.tree.sync(guild=guild)
-        log.info("Slash commands zsynchronizowane")
+        log.info("Slash commands zsynchronizowane (guild)")
+
+        # Global sync — works on all servers (up to 1 hour to propagate)
+        await self.tree.sync()
+        log.info("Slash commands zsynchronizowane globalnie")
 
     async def on_ready(self):
         log.info(f"Bot uruchomiony jako {self.user} (ID: {self.user.id})")
