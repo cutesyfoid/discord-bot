@@ -163,7 +163,10 @@ class Tupper(commands.Cog):
             return
 
         content = message.content
-        if not content:
+        attachments = message.attachments
+
+        # Skip if there's no text AND no attachments
+        if not content and not attachments:
             return
 
         with get_db() as conn:
@@ -176,7 +179,9 @@ class Tupper(commands.Cog):
             prefix = tupper["prefix"]
             if content.startswith(prefix):
                 text = content[len(prefix):].strip()
-                if not text:
+
+                # Allow empty text if there are attachments
+                if not text and not attachments:
                     return
 
                 try:
@@ -190,6 +195,15 @@ class Tupper(commands.Cog):
                     )
                     return
 
+                # Download attachments BEFORE deleting the message,
+                # otherwise Discord invalidates the URLs on deletion
+                files = []
+                for attachment in attachments:
+                    try:
+                        files.append(await attachment.to_file())
+                    except Exception:
+                        pass
+
                 try:
                     await message.delete()
                 except discord.Forbidden:
@@ -197,9 +211,10 @@ class Tupper(commands.Cog):
 
                 avatar_url = tupper["avatar"] or message.author.display_avatar.url
                 await webhook.send(
-                    content=text,
+                    content=text or None,
                     username=tupper["name"],
-                    avatar_url=avatar_url
+                    avatar_url=avatar_url,
+                    files=files or None
                 )
                 break
 
